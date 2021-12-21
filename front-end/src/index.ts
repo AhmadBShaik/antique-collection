@@ -1,0 +1,3 @@
+AllAntiquesPage()
+
+// EditAntiquePage(2)

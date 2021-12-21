@@ -1,6 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 import express from 'express'
 import config from 'dotenv'
+import cors from 'cors'
+
 
 const prisma = new PrismaClient()
 const app = express()
@@ -8,7 +10,7 @@ const app = express()
 config.config()
 
 app.use(express.json())
-
+app.use(cors())
 
 
 // Get all antiques

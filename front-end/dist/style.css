@@ -1,0 +1,346 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.container{
+    min-height: 100%;
+    background-color: rgba(232, 213, 179,0.3);
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    padding-top: 5px;
+}
+
+html,body, #root{
+    height: 100%;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #fff;
+}
+
+.app-title{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card{
+    border-radius: 2px;
+    padding: 10px;
+    padding-top: 15px;
+    max-width: 600px;
+    min-height: 50px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 1px 1px 7px gold;
+    margin: auto;
+    margin-top: 15px;
+}
+.card:hover{
+    box-shadow: 1px 1px 12px gold;
+}
+
+.card-name{
+    font-weight: bold;
+    
+}
+
+hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #fff;
+    border:none;
+    background-color: rgb(253, 239, 161);
+    height: 1px;
+}
+
+.card-description{
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-worth{
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+
+#back-btn{
+    background-color: #fff;
+    padding: 3px;
+    color: green;
+    border: 2px green solid;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px green;
+
+}
+
+
+#back-btn:hover{
+    box-shadow: 0px 0px 5px green;
+}
+
+
+
+#edit-btn{
+    padding: 3px;
+    background-color: #fff;
+    color: #FF8800;
+    border: 2px #FF8800 solid;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px #FF8800
+
+}
+
+
+#edit-btn:hover{
+    box-shadow: 0px 0px 5px #FF8800;
+}
+
+#delete-btn{
+    background-color: #fff;
+    padding: 3px;
+    color: red;
+    border: 2px red solid;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px red;
+
+}
+
+
+#delete-btn:hover{
+    box-shadow: 0px 0px 5px red;
+}
+
+#save-edit{
+    background-color: #fff;
+    padding: 3px;
+    color: teal;
+    border: 2px teal solid;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px teal;
+
+}
+
+
+#save-edit:hover{
+    padding: 3px;
+    border: 2px teal solid;
+    box-shadow: 0px 0px 5px teal;
+    border-radius: 3px;
+}
+
+
+button{
+    margin: 5px;
+}
+
+
+.all-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-top: 10px;
+}
+
+.add-btn{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#add-btn{
+    width: 100%;
+    margin: 0;
+    padding: 7px;
+    border-radius: 4px;
+    background-color: #fff;
+    color: green;
+    border: green 2px solid;    
+    font-weight: bold;
+    box-shadow: 0px 0px 10px green;
+
+}
+
+#add-btn:hover{
+    box-shadow: 0px 0px 5px green;
+}
+
+form{
+    background-color: #fff;
+    max-width:600px ;
+    border: #FF8800 2px solid;
+    box-shadow: 0px 0px 15px #FF8800;
+    border-radius: 5px;
+    margin: auto;
+    padding: 10px;
+}
+
+#add-antique-form{
+    background-color: #fff;
+    max-width:600px ;
+    border: green 2px solid;
+    box-shadow: 0px 0px 15px green;
+    border-radius: 5px;
+    margin: auto;
+    padding: 10px;
+}
+
+
+form input{
+    padding:5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 2rem;
+}
+form textarea{
+    font-family: 'Courier New', Courier, monospace;
+    padding:5px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 10rem;
+    font-size:medium;
+    font-weight: bold;
+}
+
+form button{
+    padding:5px;
+    width: 48%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-btns{
+    display: flex;
+    flex-direction: row;
+}
+/* delete modal */
+.modal{
+    max-width: 600px;
+    margin:0 auto;
+    padding-right: 30px;
+    padding-left: 30px;
+    border: 2px red solid;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px red;
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.modal .message{
+    margin-bottom: 20px;
+    color: red;
+    font-size: large;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    padding: 7px;
+}
+
+.modal .action-btns{
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.modal .action-btns button{
+    width: 36%;
+    border-radius: 4px;
+    border:none;
+    padding:5px;
+}
+
+.back-btn{
+    color: white;
+    background-color: rgb(28, 189, 28);
+    box-shadow: 5px 5px 10px rgb(146, 202, 146);
+}
+.back-btn:hover{
+    color: white;
+    background-color: green;
+    box-shadow: 5px 5px 5px rgb(146, 202, 146);
+}
+
+
+.delete-btn{
+    color: white;
+    background-color: red;
+    box-shadow: 5px 5px 10px rgb(233, 139, 139);
+}
+
+.delete-btn:hover{
+    color: white;
+    background-color: rgb(240, 28, 28);
+    box-shadow: 5px 5px 5px rgb(233, 139, 139);
+}
+
+.pop-up{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 400px;
+    color:white;
+    border: 1px green solid;
+    border-radius: 2px;
+    padding: 5px;
+    background-color: rgb(30, 197, 30);
+    margin-bottom: 20px;
+}
+
+.pop-up .dismiss-btn{
+    margin: 0;
+    font-size: 14px;
+    color: white;
+}
+
+.pop-up .dismiss-btn:hover{
+    margin: 0;
+    font-size: 14px;
+    color: wheat;
+}
+
+#back-antique-add{
+    background-color: #fff;
+    padding: 3px;
+    color: #FF8800;
+    border: 2px #FF8800 solid;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px #FF8800;
+
+}
+#back-antique-add:hover{
+    box-shadow: 0px 0px 5px #FF8800;
+
+}
+#save-antique{
+    background-color: #fff;
+    padding: 3px;
+    color: green;
+    border: 2px green solid;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px green;
+}
+
+#save-antique:hover{
+    box-shadow: 0px 0px 5px green;
+}
+
+.error{
+    color: red;
+    font-weight: medium;
+}
