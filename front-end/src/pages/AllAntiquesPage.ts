@@ -29,8 +29,7 @@ function AllAntiquesPage(){
     const allAntiques = antiqueApi.getAllAntiques()
 
     allAntiques.then(data => {
-        console.log(data.payload)
-
+        
         if(data.payload.length == 0 ){
             allAntiquesDiv.innerHTML = "<b>No items in your collection</b>"
             allAntiquesDiv.style.textAlign = "center"
@@ -39,8 +38,7 @@ function AllAntiquesPage(){
 
         }else{
             for(let i=0;i < data.payload.length;i++){
-                console.log(data.payload[i])
-                
+                                
                 const card = document.createElement('div')
                 const cardName = document.createElement('div')
                 const horizontalRule = document.createElement('hr')

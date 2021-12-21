@@ -76,9 +76,7 @@ function AntiqueDetailPage(id:number){
             const detailName = document.getElementById('detail-name') as HTMLElement
             const detailDescription = document.getElementById('detail-description') as HTMLElement
             const detailWorth = document.getElementById('detail-worth') as HTMLElement
-            console.log(res)
-
-
+            
             detailName.innerHTML = res.payload.name
             detailDescription.innerHTML = res.payload.description
             detailWorth.innerHTML = "Worth $" + res.payload.worth    
@@ -101,12 +99,6 @@ function AntiqueDetailPage(id:number){
                 const deleteBtn = document.getElementById('delete-btn-df') as HTMLElement
                 const backBtn = document.getElementById('back-btn-df') as HTMLElement
                 
-                
-                console.log(detailName)
-                console.log(detailWorth)
-                console.log(detailDescription)
-                
-                console.log(res.payload.name)
                 detailName.innerHTML = res.payload.name
                 detailDescription.innerHTML = res.payload.description
                 detailWorth.innerHTML = "Worth $" + res.payload.worth    
