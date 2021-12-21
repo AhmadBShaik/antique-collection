@@ -10,9 +10,14 @@ function EditAntiquePage(id) {
             
 
             <form id="antique">
-                <input type="text" id="antique-name"> <br>
-                <TextArea type="text" id="antique-description"></TextArea> <br>
-                <input type="number" id="antique-worth" min="0"> <br>
+                <div id="required-name" class="error"></div>
+                <input type="text" id="antique-name" required> <br>
+
+                <div id="required-description" class="error"></div>
+                <TextArea type="text" id="antique-description" required></TextArea> <br>
+                
+                <div id="required-worth" class="error"></div>
+                <input type="number" id="antique-worth" min="0" required> <br>
 
                 <div class="form-btns">
                     <button id="back-btn">Back</button> 
@@ -42,10 +47,35 @@ function EditAntiquePage(id) {
         const antiqueName = antiqueNameElement.value;
         const antiqueDescription = antiqueDescriptionElement.value;
         const antiqueWorth = antiqueWorthElement.value;
-        antiqueApi.updateAntique(antiqueId, {
-            name: antiqueName,
-            description: antiqueDescription,
-            worth: antiqueWorth
-        });
+        if (!antiqueName || !antiqueDescription || !antiqueWorth) {
+            const requiredName = document.getElementById('required-name');
+            const requiredDescription = document.getElementById('required-description');
+            const requiredWorth = document.getElementById('required-worth');
+            if (!antiqueName) {
+                requiredName.innerHTML = "*name is required";
+            }
+            else {
+                requiredName.innerHTML = "";
+            }
+            if (!antiqueDescription) {
+                requiredDescription.innerHTML = "*description is required";
+            }
+            else {
+                requiredDescription.innerHTML = "";
+            }
+            if (!antiqueWorth) {
+                requiredWorth.innerHTML = "*worth is required";
+            }
+            else {
+                requiredWorth.innerHTML = "";
+            }
+        }
+        else {
+            antiqueApi.updateAntique(antiqueId, {
+                name: antiqueName,
+                description: antiqueDescription,
+                worth: antiqueWorth
+            });
+        }
     });
 }

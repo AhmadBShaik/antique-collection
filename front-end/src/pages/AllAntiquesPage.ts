@@ -31,34 +31,43 @@ function AllAntiquesPage(){
     allAntiques.then(data => {
         console.log(data.payload)
 
-        for(let i=0;i < data.payload.length;i++){
-            console.log(data.payload[i])
-            
-            const card = document.createElement('div')
-            const cardName = document.createElement('div')
-            const horizontalRule = document.createElement('hr')
-            const cardDescription = document.createElement('div')
-            const cardWorth = document.createElement('div')
-            
-            card.classList.add('card')
-            cardName.classList.add('card-name')
-            cardDescription.classList.add('card-description')
-            cardWorth.classList.add('card-worth')
+        if(data.payload.length == 0 ){
+            allAntiquesDiv.innerHTML = "<b>No items in your collection</b>"
+            allAntiquesDiv.style.textAlign = "center"
+            allAntiquesDiv.style.marginTop = "30px"
+            allAntiquesDiv.style.color = "teal"
 
-            cardName.innerHTML = data.payload[i].name
-            cardDescription.innerHTML = data.payload[i].description
-            cardWorth.innerHTML = "Worth $" + data.payload[i].worth
-
-            card.appendChild(cardName)
-            card.appendChild(horizontalRule)
-            card.appendChild(cardDescription)
-            card.appendChild(cardWorth)
-            
-            allAntiquesDiv.appendChild(card)
-            card.addEventListener('click',() => {
-                AntiqueDetailPage(data.payload[i].id)
-            })
+        }else{
+            for(let i=0;i < data.payload.length;i++){
+                console.log(data.payload[i])
+                
+                const card = document.createElement('div')
+                const cardName = document.createElement('div')
+                const horizontalRule = document.createElement('hr')
+                const cardDescription = document.createElement('div')
+                const cardWorth = document.createElement('div')
+                
+                card.classList.add('card')
+                cardName.classList.add('card-name')
+                cardDescription.classList.add('card-description')
+                cardWorth.classList.add('card-worth')
+    
+                cardName.innerHTML = data.payload[i].name
+                cardDescription.innerHTML = data.payload[i].description
+                cardWorth.innerHTML = "Worth $" + data.payload[i].worth
+    
+                card.appendChild(cardName)
+                card.appendChild(horizontalRule)
+                card.appendChild(cardDescription)
+                card.appendChild(cardWorth)
+                
+                allAntiquesDiv.appendChild(card)
+                card.addEventListener('click',() => {
+                    AntiqueDetailPage(data.payload[i].id)
+                })
+            }
         }
+        
 
     })
 
