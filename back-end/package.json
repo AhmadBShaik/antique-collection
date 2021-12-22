@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@prisma/client": "^3.6.0",
+    "computed-types": "^1.11.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2"

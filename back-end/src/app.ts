@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import express from 'express'
 import config from 'dotenv'
 import cors from 'cors'
-
+import Schema, { Type, string, number } from "computed-types";
 
 const prisma = new PrismaClient()
 const app = express()
@@ -12,6 +12,16 @@ config.config()
 app.use(express.json())
 app.use(cors())
 
+// Antique Schema for strict types
+const AntiqueSchema = Schema({
+    name: string,
+    description: string,
+    worth: number.gt(0).integer()
+})
+
+type Antique = Type<typeof AntiqueSchema>
+
+const validator = AntiqueSchema.destruct()
 
 // Get all antiques
 app.get('/all-antiques',async (req, res) => {
@@ -50,7 +60,13 @@ app.get('/antique-detail/:id',async (req, res) => {
 
 // Create an antique
 app.post('/create-antique',async (req, res) => {
-    try{
+    const [err, antiqueItem] = validator({
+        name:req.body.name,
+        description:req.body.description,
+        worth: req.body.worth
+    })
+
+    if(!err){
         const newAntique = await prisma.antique.create({
             data: {...req.body}
         })
@@ -59,18 +75,12 @@ app.post('/create-antique',async (req, res) => {
             success: true,
             payload: newAntique
         })
-    }catch{
+    }else{
         res.status(400)
         
         res.json({
             success: false,
-            payload: {
-                message: {
-                    name : "String",
-                    description: "String",
-                    worth: "Number"
-                }
-            }
+            payload: err
         })
     }
 })
@@ -102,21 +112,35 @@ app.put('/edit-antique/:id', async (req, res) => {
     if(req.body.hasOwnProperty('worth')){
         antique.worth = parseInt(req.body.worth)
     }
-
-
-    const updatedAntique = await prisma.antique.update({
-        where:{
-            id: parseInt(id)
-        },
-        data:{
-            ...antique
-        }
+    const [err, antiqueItem] = validator({
+        name:req.body.name,
+        description:req.body.description,
+        worth: req.body.worth
     })
 
-    res.json({
-        success: true,
-        payload: updatedAntique
-    })
+    if(!err){
+        const updatedAntique = await prisma.antique.update({
+            where:{
+                id: parseInt(id)
+            },
+            data:{
+                ...antique
+            }
+        })
+
+        res.json({
+            success: true,
+            payload: updatedAntique
+        })
+    }else{
+        res.status(400)
+        
+        res.json({
+            success: false,
+            payload: err
+        })
+    }
+
 })
 
 

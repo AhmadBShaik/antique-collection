@@ -188,6 +188,11 @@ chokidar@^3.5.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
+computed-types@^1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/computed-types/-/computed-types-1.11.1.tgz#2abd97d48f34914732070427f1ff6af192756a02"
+  integrity sha512-L0tn5D+PILEbG1TrvjYbq0hvxyjM7cj4TCE0YWk2Ks8aeT8HOACMhFRbOQnr1Th0CYhcsJ+aJOFmNkKADUoDIQ==
+
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
