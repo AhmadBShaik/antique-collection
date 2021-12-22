@@ -12,14 +12,15 @@ class AntiqueApi{
             return result
     }
 
-    async updateAntique(id: number, data: object){
+    async updateAntique(id: number, name: string, description:string , worth: number){
+        
         const result = await fetch(`http://localhost:3000/edit-antique/${id}`,{
             method:'PUT',
             headers: {
                 'Accept':'application/json',
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({name,description,worth}),
         })
         return result
     }

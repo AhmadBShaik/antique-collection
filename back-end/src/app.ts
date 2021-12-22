@@ -103,22 +103,17 @@ app.put('/edit-antique/:id', async (req, res) => {
         })    
     }
     
-    if(req.body.hasOwnProperty('name')){
-        antique.name = req.body.name
-    }
-    if(req.body.hasOwnProperty('description')){
-        antique.description = req.body.description
-    }
-    if(req.body.hasOwnProperty('worth')){
-        antique.worth = parseInt(req.body.worth)
-    }
     const [err, antiqueItem] = validator({
         name:req.body.name,
         description:req.body.description,
         worth: req.body.worth
     })
-
+    console.log(err)
     if(!err){
+        antique.name = antiqueItem?.name!
+        antique.description = antiqueItem?.description!
+        antique.worth = antiqueItem?.worth!
+        console.log("antique",antique)
         const updatedAntique = await prisma.antique.update({
             where:{
                 id: parseInt(id)

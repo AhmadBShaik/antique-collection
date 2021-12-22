@@ -23,7 +23,7 @@ class AntiqueApi {
             return result;
         });
     }
-    updateAntique(id, data) {
+    updateAntique(id, name, description, worth) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield fetch(`http://localhost:3000/edit-antique/${id}`, {
                 method: 'PUT',
@@ -31,7 +31,7 @@ class AntiqueApi {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify({ name, description, worth }),
             });
             return result;
         });

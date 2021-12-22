@@ -71,11 +71,7 @@ function EditAntiquePage(id) {
             }
         }
         else {
-            antiqueApi.updateAntique(antiqueId, {
-                name: antiqueName,
-                description: antiqueDescription,
-                worth: antiqueWorth
-            });
+            antiqueApi.updateAntique(antiqueId, antiqueName, antiqueDescription, parseInt(antiqueWorth));
         }
     });
 }
