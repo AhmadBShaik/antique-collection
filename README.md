@@ -59,4 +59,8 @@ Clone the repository and navigate to root directory (*antique-collection*)
   
   `cd front-end`
 
+- run the command to transpile the typescript code into javascript code
+  
+  `tsc`
+
 - open frontend/index.html using liveserver(preferably in VSCode) and start your antique collection.
