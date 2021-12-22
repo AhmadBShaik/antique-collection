@@ -11,13 +11,13 @@ function CreateAntiquePage(){
             
             <form id="add-antique-form">
                 <div id="required-name" class="error"></div>
-                <input type="text" id="antique-name" required> <br>
+                <input type="text" id="antique-name" placeholder="Antique Name" required> <br>
                 
                 <div id="required-description" class="error"></div>
-                <TextArea type="text" id="antique-description" required></TextArea> <br>
+                <TextArea type="text" id="antique-description" placeholder="Antique Description" required></TextArea> <br>
                 
                 <div id="required-worth" class="error"></div>
-                <input type="number" id="antique-worth" min="0" required> <br>
+                <input type="number" id="antique-worth" min="0" placeholder="Antique Worth" required> <br>
 
                 <div class="form-btns">
                     <button id="back-antique-add">Back</button> 

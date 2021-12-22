@@ -104,7 +104,7 @@ function AntiqueDetailPage(id:number){
                 detailWorth.innerHTML = "Worth $" + res.payload.worth    
                 antiqueId = res.payload.id
 
-                backBtn.addEventListener('click',() => AllAntiquesPage())
+                backBtn.addEventListener('click',() => AntiqueDetailPage(antiqueId))
                 deleteBtn.addEventListener('click',() => {
                     antiqueApi.deleteAntique(antiqueId)
                 })
