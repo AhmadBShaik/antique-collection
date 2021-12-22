@@ -64,3 +64,37 @@ Clone the repository and navigate to root directory (*antique-collection*)
   `tsc`
 
 - open frontend/index.html using liveserver(preferably in VSCode) and start your antique collection.
+
+## Sample Outputs
+
+Initially there are no antique items in database
+
+![](sample-outputs/output-1.png)
+
+Add an antique item by clicking on green button and filling the form (*all form fields are required*)
+
+![](sample-outputs/output-2.png)
+
+It will add an antique and redirect to initial page 
+
+![](sample-outputs/output-3.png)
+
+If we click on the antique item, antique detail will be displayed.It have three buttons, **back** button used to  navigate back to all antique list. **edit** button is used to  navigate to edit antique page and **delete** button is used to delete antique item. 
+
+![](sample-outputs/output-4.png)
+
+Edit page 
+
+![](sample-outputs/output-5.png)
+
+After editing the antique data, the data in database will be modified.
+
+![](sample-outputs/output-6.png)
+
+If we click on delete button in detail page, it will ask for confirmation.
+
+![](sample-outputs/output-7.png)
+
+after clicking confirm delete antique item will be deleted from database confirm delete.
+
+![](sample-outputs/output-8.png)
