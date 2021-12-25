@@ -108,12 +108,10 @@ app.put('/edit-antique/:id', async (req, res) => {
         description:req.body.description,
         worth: req.body.worth
     })
-    console.log(err)
     if(!err){
         antique.name = antiqueItem?.name!
         antique.description = antiqueItem?.description!
         antique.worth = antiqueItem?.worth!
-        console.log("antique",antique)
         const updatedAntique = await prisma.antique.update({
             where:{
                 id: parseInt(id)

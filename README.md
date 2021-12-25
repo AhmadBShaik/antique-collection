@@ -38,6 +38,11 @@ Clone the repository and navigate to root directory (*antique-collection*)
     worth Int
   }
   ```
+
+- Run prisma generate to generate the Prisma Client. You can then start querying your database.
+
+  `npx prisma generate`
+
 - Create actual data database tables by migrating the models
 
   `npx prisma migrate dev --name initialize_db`
